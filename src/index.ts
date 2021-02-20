@@ -1,12 +1,12 @@
 import config from 'config';
 import express from 'express';
 import morgan from 'morgan';
-import { Server } from 'typescript-rest';
 import { createConnection } from 'typeorm';
+import { Server } from 'typescript-rest';
 
-import SnippetController from './controllers/SnippetController';
-import errorHandler from './middleware/error';
 import dbConfig from '../config/database';
+import SnippetController from './controllers/snippet.controller';
+import errorHandler from './middleware/error';
 
 const PORT = config.get('port') || 8080;
 
