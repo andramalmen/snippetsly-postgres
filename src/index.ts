@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import { Server } from 'typescript-rest';
 
 import SnippetController from './controllers/SnippetController';
+import errorHandler from './middleware/error';
 
 const PORT = config.get('port') || 8080;
 
@@ -17,5 +18,6 @@ app.get('/hello', async (_req, res) => {
     });
 });
 Server.buildServices(app, SnippetController);
+app.use(errorHandler);
 
 app.listen({ port: PORT }, () => console.info(`Rest Server listening on port ${PORT}!`));
